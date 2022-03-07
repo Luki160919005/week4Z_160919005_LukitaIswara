@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/studentListFragment">
+
+    <fragment
+        android:id="@+id/studentListFragment"
+        android:name="com.example.week4z_160919005_lukitaiswara.view.StudentListFragment"
+        android:label="StudentListFragment" >
+        <action
+            android:id="@+id/actionStudentDetail"
+            app:destination="@id/studentDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentDetailFragment"
+        android:name="com.example.week4z_160919005_lukitaiswara.view.StudentDetailFragment"
+        android:label="fragment_student_detail"
+        tools:layout="@layout/fragment_student_detail" >
+        <argument
+            android:name="pid"
+            app:argType="string" />
+        <argument
+            android:name="pname"
+            app:argType="string" />
+        <argument
+            android:name="pbod"
+            app:argType="string" />
+        <argument
+            android:name="pphone"
+            app:argType="string" />
+    </fragment>
+</navigation>
