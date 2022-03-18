@@ -7,6 +7,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.week4z_160919005_lukitaiswara.R
 import com.example.week4z_160919005_lukitaiswara.model.Student
+import com.example.week4z_160919005_lukitaiswara.util.loadImage
 import kotlinx.android.synthetic.main.fragment_student_detail.view.*
 import kotlinx.android.synthetic.main.student_list_item.view.*
 
@@ -37,6 +38,9 @@ class StudentDetailAdapter (val studentList:ArrayList<Student>):RecyclerView.Ada
         holder.view.txtBod.setText(studentList[position].bod)
         holder.view.textID.setText(studentList[position].id)
         holder.view.txtPhone.setText(studentList[position].phone)
+        holder.view.imageViewStudent.loadImage(studentList[position].photoUrl.toString(),
+            holder.view.progressBar)
+
     }
 
 

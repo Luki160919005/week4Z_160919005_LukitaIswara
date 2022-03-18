@@ -30,5 +30,8 @@
         <argument
             android:name="pphone"
             app:argType="string" />
+        <argument
+            android:name="pphoto"
+            app:argType="string" />
     </fragment>
 </navigation>
