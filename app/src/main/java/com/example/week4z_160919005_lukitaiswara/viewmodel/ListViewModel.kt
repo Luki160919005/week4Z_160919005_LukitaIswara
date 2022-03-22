@@ -26,6 +26,8 @@ class ListViewModel(application: Application): AndroidViewModel(application) {
         studentLoadErrorLD.value = false
         loadingLD.value = true
 
+
+
         queue = Volley.newRequestQueue(getApplication())
         val url = "http://adv.jitusolution.com/student.php"
 

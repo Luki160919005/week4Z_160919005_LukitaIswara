@@ -15,10 +15,14 @@ import com.example.week4z_160919005_lukitaiswara.util.loadImage
 import com.example.week4z_160919005_lukitaiswara.util.loadImage2
 import com.example.week4z_160919005_lukitaiswara.viewmodel.DetailViewModel
 import com.example.week4z_160919005_lukitaiswara.viewmodel.ListViewModel
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_student_detail.*
 import kotlinx.android.synthetic.main.fragment_student_list.*
 import kotlinx.android.synthetic.main.student_list_item.*
 import kotlinx.android.synthetic.main.student_list_item.view.*
+import java.util.concurrent.TimeUnit
 
 
 class StudentDetailFragment : Fragment() {
@@ -64,8 +68,22 @@ class StudentDetailFragment : Fragment() {
             txtBod.setText(it.bod.toString())
             txtPhone.setText(it.phone.toString())
 
-
             imageViewStudent.loadImage2(it.photoUrl.toString())
+
+            var student = it
+            btnNotif.setOnClickListener {
+                Observable.timer(5, TimeUnit.SECONDS)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe {
+                        Log.d("Messages", "five seconds")
+                        MainActivity.showNotification(student.name.toString(),
+                            "A new notification created",
+                            R.drawable.ic_baseline_person_24)
+                    }
+            }
+
+
         })
     }
 
