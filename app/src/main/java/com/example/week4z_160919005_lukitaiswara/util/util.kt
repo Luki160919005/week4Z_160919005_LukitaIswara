@@ -7,6 +7,7 @@ import android.os.Build
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
+import androidx.databinding.BindingAdapter
 import com.example.week4z_160919005_lukitaiswara.R
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
@@ -26,6 +27,11 @@ fun ImageView.loadImage(url:String, progressBar:ProgressBar){
             }
         })
 
+
+}
+@BindingAdapter("android:imageurl","android:progressBar")
+fun loadPhotoUrl(v: ImageView, url:String, pb:ProgressBar){
+    v.loadImage(url, pb)
 
 }
 
