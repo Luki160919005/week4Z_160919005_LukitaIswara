@@ -1,5 +1,6 @@
 package com.example.week4z_160919005_lukitaiswara.view
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,8 @@ import kotlinx.android.synthetic.main.student_list_item.view.*
 
 class StudentListAdapter (val studentList:ArrayList<Student>):RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>()
     , ButtonDetailClickListener{
+
+
     class StudentViewHolder(var view: StudentListItemBinding):RecyclerView.ViewHolder(view.root)
 
     fun updateStudentList(newStudentList:List<Student>){
@@ -26,11 +29,12 @@ class StudentListAdapter (val studentList:ArrayList<Student>):RecyclerView.Adapt
         val inflater = LayoutInflater.from(parent.context)
         //val view = inflater.inflate(R.layout.student_list_item, parent, false)
         val v = DataBindingUtil.inflate<StudentListItemBinding>(inflater, R.layout.student_list_item, parent, false)
+
         return StudentViewHolder(v)
     }
 
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
-
+        Log.d("showtag", studentList[position].toString())
         holder.view.student = studentList[position]
         holder.view.listener = this
         /*holder.view.textIDstundent.setText(studentList[position].id)
@@ -57,6 +61,8 @@ class StudentListAdapter (val studentList:ArrayList<Student>):RecyclerView.Adapt
     }
 
     override fun onButtonDetailClick(v: View) {
+        Log.d("showtag", v.tag.toString())
+
         val action = StudentListFragmentDirections.actionStudentDetail(v.tag.toString(),"","","","")
         Navigation.findNavController(v).navigate(action)
     }

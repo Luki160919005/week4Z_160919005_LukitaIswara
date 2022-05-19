@@ -1,130 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.StudentDetailFragment">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="studentDetail"
+            type="com.example.week4z_160919005_lukitaiswara.model.Student" />
+        <variable
+            name="listenerUpdate"
+            type="com.example.week4z_160919005_lukitaiswara.view.ButtonUpdate" />
+        <variable
+            name="listenerNotification"
+            type="com.example.week4z_160919005_lukitaiswara.view.ButtonCreateNotification" />
+    </data>
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".view.StudentDetailFragment">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textPhone"
-            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            app:hintAnimationEnabled="true"
-            app:hintEnabled="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textBirthOfDate">
+            android:layout_height="match_parent">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtPhone"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textPhone"
                 style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Phone" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textBirthOfDate">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textBirthOfDate"
-            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            app:hintAnimationEnabled="true"
-            app:hintEnabled="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textStudentName">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtPhone"
+                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{studentDetail.phone}"
+                    android:hint="Phone" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtBod"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textBirthOfDate"
+                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Birth of Date" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textStudentName">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textStudentName"
-            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtBod"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{studentDetail.bod}"
+                    android:hint="Birth of Date" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            app:hintAnimationEnabled="true"
-            app:hintEnabled="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textStudentID">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtName"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textStudentName"
+                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Student Name" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
 
-        <ImageView
-            android:id="@+id/imageViewStudent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textStudentID">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textStudentID"
-            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            app:hintAnimationEnabled="true"
-            app:hintEnabled="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewStudent">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{studentDetail.name}"
+                    android:hint="Student Name" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textID"
+            <ImageView
+                android:id="@+id/imageViewStudent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textStudentID"
+                style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Student ID" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewStudent">
 
-        <Button
-            android:id="@+id/btnUpdate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:text="Update"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textPhone" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{studentDetail.id}"
+                    android:hint="Student ID" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/btnNotif"
-            style="@style/TextAppearance.MaterialComponents.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:text="CREATE NOTIFICATION"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textPhone" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+            <Button
+                android:id="@+id/btnUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:onClick="@{listenerUpdate::onButtonUpdate}"
+                android:text="Update"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textPhone" />
+
+            <Button
+                android:id="@+id/btnNotif"
+                style="@style/TextAppearance.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:onClick="@{listenerNotification::onButtonCreateNotification}"
+                android:text="CREATE NOTIFICATION"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textPhone" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

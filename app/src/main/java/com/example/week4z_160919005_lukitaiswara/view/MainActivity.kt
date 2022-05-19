@@ -6,6 +6,7 @@ import android.provider.Settings.Global.getString
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.databinding.DataBindingUtil
 import com.example.week4z_160919005_lukitaiswara.R
 import com.example.week4z_160919005_lukitaiswara.util.createNotificationChannel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -38,11 +39,15 @@ class MainActivity : AppCompatActivity() {
             notificationManager.notify(1001, builder.build())
 
         }
+
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
 
         createNotificationChannel(this,
             NotificationManagerCompat.IMPORTANCE_DEFAULT, false,
